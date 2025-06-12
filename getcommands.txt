@@ -1,0 +1,9 @@
+GET https://api01.iq.questrade.com/v1/symbols/search?prefix=BMO         look for a symbol by ticker, to retrieve its symbol id
+GET https://api01.iq.questrade.com/v1/markets/quotes/3873               get security quote
+
+GET https://api01.iq.questrade.com/v1/symbols/8049                      get security financial data
+
+
+
+
+
