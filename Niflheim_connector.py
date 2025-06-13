@@ -98,7 +98,7 @@ new_refresh_token = 'hJKJsT_PJItpU0YOvx4ocwdghAdbma_L0'
 
 #print('\n\n\n\n\n',find_stock_data("https://api07.iq.questrade.com", '29rngV0uOJ5kz5i09Pex94sGIAMsCR4e0', current_symbol_id[1]))
 
-symbol_ids = []
+'''symbol_ids = []
 counter = 0
 for i in range(len(tenebrae)):
     current_id = find_symbol_id("https://api06.iq.questrade.com", '5et9kvRpOnnTxa4k491D9B0GyG68wRuX0', tenebrae[i]['symbol'])
@@ -113,7 +113,7 @@ print(symbol_ids)
 with open("symbol_ids.json", "w") as f:
     json.dump(symbol_ids, f)
 
-print("Saved symbol_ids.json")
+print("Saved symbol_ids.json")'''
 
 '''i = 0
 print(find_stock_id("https://api07.iq.questrade.com", '1iP-i3owqwbO_Wnni8hyPDN92_Rj0fup0', tenebrae[i]['symbol']))
@@ -143,17 +143,14 @@ print(find_stock_id("https://api07.iq.questrade.com", '1iP-i3owqwbO_Wnni8hyPDN92
 
      
 
+url = f'{"https://api02.iq.questrade.com"}/v1/symbols?ids=37296,15987900,15310895,41664,1647794,36621,13689120,14308905,28791606,6462,30319645,31073,11593,14326,16073,20702195,32609028,22992154,52629133,2419327,11736542,1630021,15354154,35852972,15613,18065401,25829,10820435,34871423,28196,25051,4506918,2719218,19788839,2735405,19352199,1496794,2591025,27001178,36971,35892,36378,35258501,39690195,30489711,46178,20349846,29142531,39230534,3446900,19084,39465968,1247658'
 
-'''# Set the authorization header
 headers = {
-    'Authorization': f'Bearer {access_token}'
+'Authorization': f'Bearer {'6N1xn-rEJAZqMlm36pzN7fETwR3MhMGV0'}'
 }
 
-# Make the GET request
 response = requests.get(url, headers=headers)
 
 # Print status and result
 print("Status Code:", response.status_code)
-print("Response:", json.dumps(response.json(), indent=2))  
-
-'''
+print("Response:", json.dumps(response.json(), indent=2)) 
