@@ -26,7 +26,8 @@ def batch_json_batches(input_path: str, output_path: str, batch_size: int = 100)
 
     # Write out the batched data
     with open(output_path, 'w') as outfile:
-        json.dump(batches, outfile, indent=2)
+        json.dump({"batches": batches}, outfile, indent=2)
+
 
 
 batch_json_batches("symbol_ids.json","batch_ids.json",100)
