@@ -30,4 +30,4 @@ def batch_json_batches(input_path: str, output_path: str, batch_size: int = 100)
 
 
 
-batch_json_batches("symbol_ids.json","batch_ids.json",100)
+batch_json_batches("symbol_ids.json","niflheim_production_energy.json",200)
