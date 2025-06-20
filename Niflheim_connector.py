@@ -143,10 +143,10 @@ print(find_stock_id("https://api07.iq.questrade.com", '1iP-i3owqwbO_Wnni8hyPDN92
 
      
 
-url = f'{"https://api01.iq.questrade.com"}/v1/symbols?ids=19084'
+url = f'{"https://api02.iq.questrade.com"}/v1/symbols?ids=54297541'
 
 headers = {
-'Authorization': f'Bearer {'5AbyMvHsWu0_zIXnMx69-Mr5PAG9pZwb0'}'
+'Authorization': f'Bearer {'S1gTuclodiR6bsIAngJYIuWovUIPBoN60'}'
 }
 
 response = requests.get(url, headers=headers)

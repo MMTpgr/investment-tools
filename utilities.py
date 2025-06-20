@@ -93,3 +93,37 @@ def print_monthly_costs(list):
     print( cost)
     
 '''
+
+
+def actual_calculate_monthly_dividends(central_stocks,actual_stocks, months):
+    monthly_dividends = {
+    "janvier": 0,
+    "fevrier": 0,
+    "mars": 0,
+    "avril": 0,
+    "mai": 0,
+    "juin": 0,
+    "juillet": 0,
+    "aout": 0,
+    "septembre": 0,
+    "octobre": 0,
+    "novembre": 0,
+    "decembre": 0
+    }
+
+    for i in range(len(central_stocks)):
+        
+        if central_stocks[i][3] == MONTHLY:
+            
+            printable = ""
+
+            for j in range(12):
+                monthly_dividends[months[j]] += central_stocks[i][2][0]*actual_stocks[i]
+        else :
+
+            printable = ""
+
+            for j in central_stocks[i][3]:
+                monthly_dividends[months[j]] += central_stocks[i][2][0]*actual_stocks[i]
+    
+    return monthly_dividends
