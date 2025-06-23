@@ -21,8 +21,7 @@ def load_csv(filename):
         return [row for row in reader if row]
     
 
-tenebrae = load_csv("zegnautus_data.csv")
-print(tenebrae[0])
+
 
 #8049
 #CJ = 5101915
@@ -144,12 +143,13 @@ print(find_stock_id("https://api07.iq.questrade.com", '1iP-i3owqwbO_Wnni8hyPDN92
      
 
 url = f'{"https://api02.iq.questrade.com"}/v1/symbols?ids=54297541'
+url2= 'https://api02.iq.questrade.com/v1/symbols/search?prefix=DIR.UN.TO'
 
 headers = {
-'Authorization': f'Bearer {'S1gTuclodiR6bsIAngJYIuWovUIPBoN60'}'
+'Authorization': f'Bearer {'tbqE3boCr6UTceQGdZZP8WZQ6U0NLGMV0'}'
 }
 
-response = requests.get(url, headers=headers)
+response = requests.get(url2, headers=headers)
 
 # Print status and result
 print("Status Code:", response.status_code)

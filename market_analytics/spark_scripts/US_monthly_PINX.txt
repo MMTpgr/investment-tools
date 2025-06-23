@@ -1,0 +1,55 @@
+from pyspark.sql.functions import col, when
+
+
+df = spark.read.load('abfss://envule@vatefairefoutre.dfs.core.windows.net/data', format='parquet')
+
+
+
+to_drop = ['minTicks','industryGroup','industrySubGroup','isQuotable','tradeUnit']
+
+for collumn in to_drop:
+    df = df.drop(collumn)
+
+# Drop unnecessary column
+#df = df.drop('minTicks')
+
+# Calculate dividend frequency
+adjusted_yield = col('yield') - (col('dividend') * 1200) / col('prevDayClosePrice')
+
+df = df.withColumn(
+    'dividend frequency',
+    when(
+        col('dividend') != 0,
+        when(
+            (adjusted_yield > -1) & (adjusted_yield < 1),
+            'monthly'
+        ).otherwise('quarterly')
+    ).otherwise(None)
+)
+
+# Calculate payout ratio
+df = df.withColumn(
+    'payout ratio',
+    col('eps') / when(
+        col('dividend frequency') == 'monthly',
+        col('dividend') * 12
+    ).otherwise(col('dividend') * 4)
+)
+
+# Keep only monthly dividend stocks
+df = df.where(col('dividend frequency') == 'monthly')
+
+# Apply final filters
+df = df.filter(
+    (col('yield') >= 4) &
+    ( (col("listingExchange") == "PINX" ) ) &
+    (col('industrySector') != 'FinancialServices') 
+    
+)
+
+df = df.orderBy(col('payout ratio').asc())
+
+
+print(df.count())
+
+display(df)
