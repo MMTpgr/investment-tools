@@ -2,7 +2,7 @@ BUCKET_A = [2, 5, 8, 11]
 BUCKET_B = [3, 6, 9, 0]
 BUCKET_C = [4, 7, 10, 1]
 MONTHLY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-investing_months = 36
+investing_months = 60
 
 
 def print_DRIP_function(stock_sticker, data, dividend_frequency):
@@ -67,7 +67,7 @@ def calculate_monthly_dividends(central_stocks, months):
             for i in range(12):
                 monthly_dividends[months[i]] += stock[2][0]*stock[1][0]  
         else :
-            for i in stock[2]:
+            for i in stock[3]:
                 monthly_dividends[months[i]] += stock[1][2]
     
     return monthly_dividends
@@ -118,12 +118,12 @@ def actual_calculate_monthly_dividends(central_stocks,actual_stocks, months):
             printable = ""
 
             for j in range(12):
-                monthly_dividends[months[j]] += central_stocks[i][2][0]*actual_stocks[i]
+                monthly_dividends[months[j]] += central_stocks[i][2][0]*actual_stocks[i][1]
         else :
 
             printable = ""
 
             for j in central_stocks[i][3]:
-                monthly_dividends[months[j]] += central_stocks[i][2][0]*actual_stocks[i]
+                monthly_dividends[months[j]] += central_stocks[i][2][0]*actual_stocks[i][1]
     
     return monthly_dividends

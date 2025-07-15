@@ -44,7 +44,7 @@ def refresh_questrade_token(refresh_token: str) -> tuple[str, str]:
     else:
         raise RuntimeError(f"Failed to refresh token: {response.status_code} - {response.text}")
     
-#GET https://api01.iq.questrade.com/v1/symbols/search?prefix=BMO         look for a symbol by ticker, to retrieve its symbol id
+#GET https://api01.iq.questrade.com/v1/symbols/search?prefix=BMO       look for a symbol by ticker, to retrieve its symbol id
 
 def find_symbol_id(server,access_token,symbol) -> int:
 
@@ -143,10 +143,10 @@ print(find_stock_id("https://api07.iq.questrade.com", '1iP-i3owqwbO_Wnni8hyPDN92
      
 
 url = f'{"https://api02.iq.questrade.com"}/v1/symbols?ids=54297541'
-url2= 'https://api02.iq.questrade.com/v1/symbols/search?prefix=DIR.UN.TO'
 
+url2= 'https://api06.iq.questrade.com/v1/symbols/search?prefix=QQQY.TO'
 headers = {
-'Authorization': f'Bearer {'tbqE3boCr6UTceQGdZZP8WZQ6U0NLGMV0'}'
+'Authorization': f'Bearer {'-G1x0Lbc8IxEXe1xftn70BdE32MGwsa20'} ',
 }
 
 response = requests.get(url2, headers=headers)
@@ -154,3 +154,4 @@ response = requests.get(url2, headers=headers)
 # Print status and result
 print("Status Code:", response.status_code)
 print("Response:", json.dumps(response.json(), indent=2)) 
+

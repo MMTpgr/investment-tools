@@ -1,17 +1,24 @@
 from pyspark.sql.functions import col, when
 
 
-df = spark.read.load('abfss://envule@vatefairefoutre.dfs.core.windows.net/data', format='parquet')
+# File location and type
+file_location = "/FileStore/tables"
+file_type = "parquet"
 
 
+# The applied options are for CSV files. For other file types, these will be ignored.
+df = spark.read.format(file_type).load(file_location)
 
 to_drop = ['minTicks','industryGroup','industrySubGroup','isQuotable','tradeUnit']
 
 for collumn in to_drop:
     df = df.drop(collumn)
 
-# Drop unnecessary column
-#df = df.drop('minTicks')
+# eliminate null dividend or yield rows
+df = df.filter(
+    (col('dividend')>0) 
+    
+)
 
 # Calculate dividend frequency
 adjusted_yield = col('yield') - (col('dividend') * 1200) / col('prevDayClosePrice')
@@ -27,6 +34,7 @@ df = df.withColumn(
     ).otherwise(None)
 )
 
+
 # Calculate payout ratio
 df = df.withColumn(
     'payout ratio',
@@ -37,18 +45,17 @@ df = df.withColumn(
 )
 
 # Keep only monthly dividend stocks
-df = df.where(col('dividend frequency') == 'quarterly')
+# df = df.where(col('dividend frequency') == 'quarterly')
 
 # Apply final filters
 df = df.filter(
     (col('yield') >= 4) &
-     ~((col("listingExchange") == "TSX") | (col("listingExchange") == "TSXV") | (col("listingExchange") == "PINX" ) ) &
     (col('industrySector') != 'FinancialServices') 
-    
 )
 
-df = df.orderBy(col('payout ratio').asc())
+df = df.orderBy(col('payout ratio').asc()).orderBy(col('dividend frequency'))
 
+df.write.format("parquet").save("/FileStore/production_magitech_core")
 
 print(df.count())
 

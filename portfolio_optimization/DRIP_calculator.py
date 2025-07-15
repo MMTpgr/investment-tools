@@ -266,11 +266,10 @@ def noyau_magitech(assets, budget,central_cost_vector, randomness, beam_length):
                 #print('____________________________________')
 
             
-    '''print("budget: ", budget)
 
     
 
-    print("iterations: ", nnn)'''
+    
     #print("final assets: ", initial_assets)
 
     print("beam", beam)
@@ -280,14 +279,21 @@ def noyau_magitech(assets, budget,central_cost_vector, randomness, beam_length):
 
 
 
-imperial_cost = 280
+imperial_cost = 583.3333333
 
 central_cost_vector = [[0.06,6.14], [0.09,11.89], [0.0065,0.84], [0.068,12.20], 
-                       [0.0583,10.86], [0.03,4.69], [0.0612,10.463], [0.1,20.12]]
+                       [0.0583,10.86], [0.03,4.69], [0.0612,10.463], [0.1,20.12],
 
-algorithm_result = noyau_magitech(8*[1], imperial_cost,central_cost_vector, 0.1, 5)    #[6,5,30,4,10,5,7,4,2]
+                       [0.5875,40.68], [0.18,8.03], [0.105,5.72], [0.29,17.15],
+                        [0.500735,23.88], [0.32314875,27.66], [0.725,60.92], [0.457737,37.66],
+                        [0.2,10.8], [0.5,28.27]
+                       
+                       
+                       ]
 
-M_AX_Dux = 8*[0]
+algorithm_result = noyau_magitech(18*[1], imperial_cost,central_cost_vector, 0.1, 5)    #[6,5,30,4,10,5,7,4,2]
+
+M_AX_Dux = 18*[0]
 
 for imperial_ship in algorithm_result:
     if profit_function(imperial_ship[0], imperial_cost) > profit_function(M_AX_Dux, imperial_cost):
@@ -308,29 +314,29 @@ print("\nalgorithm result \n___________________________________\n", algorithm_re
 #TODO add a system that manages conditions on affections (eg. never buy 10 and ore CJ.TO stocks monthly)
 
 
-CJ_TO = ("CJ_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.06, stock_price=6.14, initial_shares=5, extra_shares_per_month=algorithm_result[0]      , dividend_frequency=1), [0.06, 6.14, 25, algorithm_result[0]],MONTHLY)
-FRU_TO = ("FRU_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.09, stock_price=11.89, initial_shares=12, extra_shares_per_month=algorithm_result[1]  , dividend_frequency=1), [0.09, 11.89, 12, algorithm_result[1]], MONTHLY)
-SRR_VN = ("SRR_VN",DRIP_calculator(months=investing_months, monthly_dividend=0.0065, stock_price=0.84, initial_shares=160, extra_shares_per_month=algorithm_result[2] , dividend_frequency=1), [0.0065, 0.84, 160, algorithm_result[2]], MONTHLY)
-APLE = ("APLE",DRIP_calculator(months=investing_months, monthly_dividend=0.0952, stock_price=12.20, initial_shares=10, extra_shares_per_month=algorithm_result[3]     , dividend_frequency=1), [0.0952, 12.20, 10, algorithm_result[3]], MONTHLY)
+CJ_TO = ("CJ_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.06, stock_price=6.14, initial_shares=33, extra_shares_per_month=algorithm_result[0]      , dividend_frequency=1), [0.06, 6.14, 25, algorithm_result[0]],MONTHLY)
+FRU_TO = ("FRU_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.09, stock_price=11.89, initial_shares=15, extra_shares_per_month=algorithm_result[1]  , dividend_frequency=1), [0.09, 11.89, 12, algorithm_result[1]], MONTHLY)
+SRR_VN = ("SRR_VN",DRIP_calculator(months=investing_months, monthly_dividend=0.0065, stock_price=0.84, initial_shares=207, extra_shares_per_month=algorithm_result[2] , dividend_frequency=1), [0.0065, 0.84, 160, algorithm_result[2]], MONTHLY)
+APLE = ("APLE",DRIP_calculator(months=investing_months, monthly_dividend=0.0952, stock_price=12.20, initial_shares=6, extra_shares_per_month=algorithm_result[3]     , dividend_frequency=1), [0.0952, 12.20, 10, algorithm_result[3]], MONTHLY)
 HR_UN_TO = ("HR_UN_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.05, stock_price=10.68, initial_shares=10, extra_shares_per_month=0, dividend_frequency=1), [0.05, 10.68, 10, 0], MONTHLY)
 
-DIR_UN_TO = ("DIR_UN_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.0583  , stock_price=10.86, initial_shares=10, extra_shares_per_month=algorithm_result[4], dividend_frequency=1), [0.0583, 10.86, 10, algorithm_result[4]], MONTHLY)
-NWH_UN_TO = ("NWH_UN_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.03  , stock_price=4.69, initial_shares=21, extra_shares_per_month=algorithm_result[5]   , dividend_frequency=1), [0.03, 4.69, 21, algorithm_result[5]], MONTHLY)
-SRRTF = ("SRRTF",DRIP_calculator(months=investing_months, monthly_dividend=0.1008, stock_price=10.463, initial_shares=9, extra_shares_per_month=algorithm_result[6]          , dividend_frequency=1), [0.1008, 10.463, 9, algorithm_result[6]], MONTHLY)
-NPI_TO = ("NPI_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.1, stock_price=20.12, initial_shares=14, extra_shares_per_month=algorithm_result[7]            , dividend_frequency=1), [0.1, 20.12, 14, algorithm_result[7]], MONTHLY)
+DIR_UN_TO = ("DIR_UN_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.0583  , stock_price=10.86, initial_shares=5, extra_shares_per_month=algorithm_result[4], dividend_frequency=1), [0.0583, 10.86, 10, algorithm_result[4]], MONTHLY)
+NWH_UN_TO = ("NWH_UN_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.03  , stock_price=4.69, initial_shares=25, extra_shares_per_month=algorithm_result[5]   , dividend_frequency=1), [0.03, 4.69, 21, algorithm_result[5]], MONTHLY)
+SRRTF = ("SRRTF",DRIP_calculator(months=investing_months, monthly_dividend=0.1008, stock_price=10.463, initial_shares=5, extra_shares_per_month=algorithm_result[6]          , dividend_frequency=1), [0.1008, 10.463, 9, algorithm_result[6]], MONTHLY)
+NPI_TO = ("NPI_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.1, stock_price=22.49, initial_shares=13, extra_shares_per_month=algorithm_result[7]            , dividend_frequency=1), [0.1, 20.12, 14, algorithm_result[7]], MONTHLY)
 
-CNQ_TO = ("CNQ_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.5875, stock_price=40.68, initial_shares=100, extra_shares_per_month=0, dividend_frequency=3), [0.5875, 40.68, 2, 0], BUCKET_B)
-KPT_TO = ("KPT_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.18, stock_price=8.03, initial_shares=100, extra_shares_per_month=0, dividend_frequency=3), [0.18, 8.03, 12, 0], BUCKET_B)
-XTC_TO = ("XTC_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.105 , stock_price=5.72, initial_shares=100, extra_shares_per_month=0, dividend_frequency=3), [0.105, 5.72, 17, 0], BUCKET_A)
-ADN_TO = ("ADN_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.29 , stock_price=17.15, initial_shares=100, extra_shares_per_month=0, dividend_frequency=3) , [0.29, 17.15, 6, 0], BUCKET_B)
+CNQ_TO = ("CNQ_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.5875, stock_price=40.68, initial_shares=2, extra_shares_per_month=algorithm_result[8],   dividend_frequency=3), [0.5875, 40.68, 2, 0], BUCKET_B)
+KPT_TO = ("KPT_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.18, stock_price=8.03, initial_shares=13, extra_shares_per_month=algorithm_result[9],     dividend_frequency=3), [0.18, 8.03, 12, 0], BUCKET_B)
+XTC_TO = ("XTC_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.105 , stock_price=5.72, initial_shares=4, extra_shares_per_month=algorithm_result[10],    dividend_frequency=3), [0.105, 5.72, 17, 0], BUCKET_A)
+ADN_TO = ("ADN_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.29 , stock_price=17.15, initial_shares=3, extra_shares_per_month=algorithm_result[11],    dividend_frequency=3) , [0.29, 17.15, 6, 0], BUCKET_B)
 
-PFE = ("PFE",DRIP_calculator(months=investing_months, monthly_dividend=0.3655 , stock_price=23.88, initial_shares=3, extra_shares_per_month=0, dividend_frequency=3) , [0.500735, 23.88, 3, 0], BUCKET_A)
-EMA_TO = ("EMA_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.725 , stock_price=60.92, initial_shares=2, extra_shares_per_month=0, dividend_frequency=3) , [0.725, 60.92, 2, 0], BUCKET_C)
-CU_TO = ("CU_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.4577 , stock_price=37.66, initial_shares=3, extra_shares_per_month=0, dividend_frequency=3) , [0.4577, 37.77, 3, 0], BUCKET_A)
-AT_T = ("AT_T",DRIP_calculator(months=investing_months, monthly_dividend=0.235875 , stock_price=27.66, initial_shares=3, extra_shares_per_month=0, dividend_frequency=3) , [0.32314875, 27.66, 3, 0], BUCKET_C)
+PFE = ("PFE",DRIP_calculator(months=investing_months, monthly_dividend=0.500735 , stock_price=23.88, initial_shares=4, extra_shares_per_month=algorithm_result[12],     dividend_frequency=3) , [0.500735, 23.88, 3, 0], BUCKET_A)
+AT_T = ("AT_T",DRIP_calculator(months=investing_months, monthly_dividend=0.32314875 , stock_price=27.66, initial_shares=4, extra_shares_per_month=algorithm_result[15],    dividend_frequency=3) , [0.32314875, 27.66, 3, 0], BUCKET_C)
+EMA_TO = ("EMA_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.725 , stock_price=60.92, initial_shares=2, extra_shares_per_month=algorithm_result[13],    dividend_frequency=3) , [0.725, 60.92, 2, 0], BUCKET_C)
+CU_TO = ("CU_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.4577 , stock_price=37.66, initial_shares=4, extra_shares_per_month=algorithm_result[14],    dividend_frequency=3) , [0.4577, 37.77, 3, 0], BUCKET_A)
 
-ET_TO = ("ET_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.2, stock_price=10.80, initial_shares=100, extra_shares_per_month=0, dividend_frequency=3), [0.2, 10.80, 10, 4], BUCKET_A)
-LIF_TO = ("LIF_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.5, stock_price=29.21, initial_shares=100, extra_shares_per_month=0, dividend_frequency=3), [0.5, 29.21, 5, 1], BUCKET_C)
+ET_TO = ("ET_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.2, stock_price=10.80, initial_shares=2, extra_shares_per_month=algorithm_result[16],    dividend_frequency=3), [0.2, 10.80, 10, 4], BUCKET_A)
+LIF_TO = ("LIF_TO",DRIP_calculator(months=investing_months, monthly_dividend=0.5, stock_price=28.27, initial_shares=3, extra_shares_per_month=algorithm_result[17]   , dividend_frequency=3), [0.5, 29.21, 5, 1], BUCKET_C)
 
 
 '''
@@ -353,9 +359,11 @@ def print_DRIP_stock_values(central_stocks):
         print_DRIP_function(i[0], i[1], "monthly")
    
 
-goal_central_stocks = [CJ_TO, FRU_TO, SRR_VN, DIR_UN_TO, NWH_UN_TO, SRRTF, NPI_TO,PFE, AT_T, CU_TO, EMA_TO, CNQ_TO, KPT_TO, XTC_TO, ADN_TO,HR_UN_TO,ET_TO,LIF_TO] #[CJ_TO, CNQ_TO, FRU_TO, SRR_VN, LIF_TO, KPT_TO, ET_TO, WJX_TO, VCI_TO, ADN_TO, XTC_TO, ARE_TO ,T_ETF,QQQ_TO]
+#goal_central_stocks = [CJ_TO, FRU_TO, SRR_VN, DIR_UN_TO, NWH_UN_TO, SRRTF, NPI_TO,PFE, AT_T, CU_TO, EMA_TO, CNQ_TO, KPT_TO, XTC_TO, ADN_TO,HR_UN_TO,ET_TO,LIF_TO] #[CJ_TO, CNQ_TO, FRU_TO, SRR_VN, LIF_TO, KPT_TO, ET_TO, WJX_TO, VCI_TO, ADN_TO, XTC_TO, ARE_TO ,T_ETF,QQQ_TO]
 
-central_stocks = [CJ_TO, FRU_TO, SRR_VN, DIR_UN_TO, NWH_UN_TO, SRRTF, NPI_TO,PFE, AT_T, CU_TO, EMA_TO, CNQ_TO, KPT_TO, XTC_TO, ADN_TO,APLE] #[CJ_TO, CNQ_TO, FRU_TO, SRR_VN, LIF_TO, KPT_TO, ET_TO, WJX_TO, VCI_TO, ADN_TO, XTC_TO, ARE_TO ,T_ETF,QQQ_TO]
+central_stocks = [CJ_TO, FRU_TO, SRR_VN,APLE, DIR_UN_TO, NWH_UN_TO, SRRTF, NPI_TO  ,CNQ_TO, KPT_TO, XTC_TO, ADN_TO, PFE, AT_T,  EMA_TO, CU_TO, ET_TO,LIF_TO] #[CJ_TO, CNQ_TO, FRU_TO, SRR_VN, LIF_TO, KPT_TO, ET_TO, WJX_TO, VCI_TO, ADN_TO, XTC_TO, ARE_TO ,T_ETF,QQQ_TO]
+
+
 months = ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"]
 
 #actual_stocks = [33,15,205,5,24,5,13,3,3,4,3,3,13,4,3  ]
@@ -433,18 +441,15 @@ print("Monthly costs: ")
 print_dict(calculate_monthly_costs(central_stocks, months)[0])
 '''
 
-print("\n")
+'''print("\n")
 print("Monthly dividends: ")
 print_dict(actual_calculate_monthly_dividends(goal_central_stocks,visible, months)) #visible_actuel
-print("\n")
+print("\n")'''
 
-'''
+
+           
 print_DRIP_stock_values(central_stocks)
-
-'''
-
-#print(noyau_magitech(8*[1], imperial_cost, 0.1, 10))
+print('\n')
 
 
-
-print(12*0.45 == 5.4)
+print_dict(calculate_monthly_dividends(central_stocks, months))
