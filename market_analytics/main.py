@@ -3,7 +3,6 @@ from batching_dataset import batch_json_batches
 from Niflheim_connector import *
 import concurrent.futures
 
-print("AAAAAAAAAAAAAAAAAAAAaa")
 tenebrae = load_csv("zegnautus_data.csv")
 
 print(tenebrae[0])

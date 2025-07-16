@@ -6,7 +6,7 @@ from pathlib import Path
 import csv
 
 # Replace this with your actual access token and server
-access_token = '2pA5WXpvo2EZNSTvZgaRpefY45MyvIht0'
+access_token = ''
 
 server = 'https://api01.iq.questrade.com'
 
@@ -25,7 +25,7 @@ def load_csv(filename):
 
 #8049
 #CJ = 5101915
-initial_refresh_token = 'z6wj5wfpSjP-1qsjxzQjYMEnLwQqfpBU0'
+initial_refresh_token = ''
 
 def wait_precise(seconds):
     start = time.perf_counter()
@@ -44,7 +44,6 @@ def refresh_questrade_token(refresh_token: str) -> tuple[str, str]:
     else:
         raise RuntimeError(f"Failed to refresh token: {response.status_code} - {response.text}")
     
-#GET https://api01.iq.questrade.com/v1/symbols/search?prefix=BMO       look for a symbol by ticker, to retrieve its symbol id
 
 def find_symbol_id(server,access_token,symbol) -> int:
 
@@ -88,19 +87,16 @@ def find_stock_id(server, access_token, current_symbol):
     return stock_data['symbols'][0]
 
 
-'''current_symbol_id = find_symbol_id("https://api07.iq.questrade.com", '29rngV0uOJ5kz5i09Pex94sGIAMsCR4e0', tenebrae[0]['symbol'])
-print(current_symbol_id)'''
 
-new_refresh_token = 'hJKJsT_PJItpU0YOvx4ocwdghAdbma_L0'
+new_refresh_token = ''
 
 
 
-#print('\n\n\n\n\n',find_stock_data("https://api07.iq.questrade.com", '29rngV0uOJ5kz5i09Pex94sGIAMsCR4e0', current_symbol_id[1]))
 
 '''symbol_ids = []
 counter = 0
 for i in range(len(tenebrae)):
-    current_id = find_symbol_id("https://api06.iq.questrade.com", '5et9kvRpOnnTxa4k491D9B0GyG68wRuX0', tenebrae[i]['symbol'])
+    current_id = find_symbol_id("https://api06.iq.questrade.com", '', tenebrae[i]['symbol'])
     if current_id != None:
         
         symbol_ids.append(current_id[1])
@@ -115,7 +111,7 @@ with open("symbol_ids.json", "w") as f:
 print("Saved symbol_ids.json")'''
 
 '''i = 0
-print(find_stock_id("https://api07.iq.questrade.com", '1iP-i3owqwbO_Wnni8hyPDN92_Rj0fup0', tenebrae[i]['symbol']))
+print(find_stock_id("https://api07.iq.questrade.com", '', tenebrae[i]['symbol']))
 '''
 '''while True:
 
@@ -146,7 +142,7 @@ url = f'{"https://api02.iq.questrade.com"}/v1/symbols?ids=54297541'
 
 url2= 'https://api06.iq.questrade.com/v1/symbols/search?prefix=QQQY.TO'
 headers = {
-'Authorization': f'Bearer {'-G1x0Lbc8IxEXe1xftn70BdE32MGwsa20'} ',
+'Authorization': f'Bearer {''} ',
 }
 
 response = requests.get(url2, headers=headers)

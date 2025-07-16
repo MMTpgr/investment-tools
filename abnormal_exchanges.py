@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = "JjwRNLq3SbyLDu3liyptodgovK0h8lMi"
+API_KEY = ""
 URL = f"https://financialmodelingprep.com/api/v3/exchanges-list?apikey={API_KEY}"
 
 # Define standard exchange names for US/Ca

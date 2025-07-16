@@ -3,10 +3,7 @@ import csv
 
 
 
-
-  
-# Replace with your actual FMP API key
-API_KEY = "JjwRNLq3SbyLDu3liyptodgovK0h8lMi"
+API_KEY = ""
 
 
 URL = f"https://financialmodelingprep.com/api/v3/stock/list?apikey={API_KEY}"
