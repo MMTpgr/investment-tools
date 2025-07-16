@@ -31,10 +31,9 @@ def start_rest_ws_stream(api_server, token, symbol_ids):
 start_rest_ws_stream(night["api_server"],night['access_token'],[8049])'''
 
 
-# Replace with your Event Hubs details
 BOOTSTRAP_SERVERS = 'https://crestholm.servicebus.windows.net:9093'
 EVENT_HUB_NAME = 'ma-veles'
-CONNECTION_STRING = 'Endpoint=sb://crestholm.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=L8sh1QgaLOb8Ix1FArlmMrDaCb2/j25hc+AEhOvJ7uY='  # from Shared Access Policies
+CONNECTION_STRING = ''
 
 # KafkaProducer config for Event Hubs
 producer = KafkaProducer(
