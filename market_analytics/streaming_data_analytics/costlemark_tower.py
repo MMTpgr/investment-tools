@@ -33,7 +33,6 @@ start_rest_ws_stream(night["api_server"],night['access_token'],[8049])'''
 
 BOOTSTRAP_SERVERS = 'https://crestholm.servicebus.windows.net:9093'
 EVENT_HUB_NAME = 'ma-veles'
-CONNECTION_STRING = ''
 
 # KafkaProducer config for Event Hubs
 producer = KafkaProducer(
